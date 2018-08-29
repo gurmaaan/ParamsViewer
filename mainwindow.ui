@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>912</width>
-    <height>599</height>
+    <height>657</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,8 +29,8 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>258</width>
-        <height>248</height>
+        <width>264</width>
+        <height>480</height>
        </size>
       </property>
       <property name="features">
@@ -59,7 +59,7 @@
            </size>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="filesPage">
            <property name="geometry">
@@ -67,19 +67,19 @@
              <x>0</x>
              <y>0</y>
              <width>240</width>
-             <height>425</height>
+             <height>457</height>
             </rect>
            </property>
            <attribute name="icon">
             <iconset resource="sources.qrc">
-             <normaloff>:/icons/icons/fileA.png</normaloff>:/icons/icons/fileA.png</iconset>
+             <normaloff>:/icons/icons/fileRight.png</normaloff>:/icons/icons/fileRight.png</iconset>
            </attribute>
            <attribute name="label">
             <string>Files</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
-             <layout class="QVBoxLayout" name="filesLayout">
+             <layout class="QVBoxLayout" name="filesVLayout">
               <property name="sizeConstraint">
                <enum>QLayout::SetMinimumSize</enum>
               </property>
@@ -113,11 +113,18 @@
                <iconset resource="sources.qrc">
                 <normaloff>:/icons/icons/add.png</normaloff>:/icons/icons/add.png</iconset>
               </property>
+              <property name="iconSize">
+               <size>
+                <width>40</width>
+                <height>40</height>
+               </size>
+              </property>
               <property name="shortcut">
                <string>Ctrl+Shift+O</string>
               </property>
               <property name="description">
-               <string>You can </string>
+               <string>
+Multiple processing supporting </string>
               </property>
              </widget>
             </item>
@@ -136,18 +143,177 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="modelsPage">
+          <widget class="QWidget" name="bulkPage">
            <property name="geometry">
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>240</width>
-             <height>425</height>
+             <width>293</width>
+             <height>457</height>
             </rect>
            </property>
-           <attribute name="label">
-            <string>Model</string>
+           <attribute name="icon">
+            <iconset resource="sources.qrc">
+             <normaloff>:/icons/icons/points.png</normaloff>:/icons/icons/points.png</iconset>
            </attribute>
+           <attribute name="label">
+            <string>Bulk utility</string>
+           </attribute>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <layout class="QVBoxLayout" name="bulkVLayout">
+              <item>
+               <widget class="QCommandLinkButton" name="It-InAandInB_DubIt-BothVals">
+                <property name="text">
+                 <string>1. (A ∪ B) ∪ (A ⊂ B) ∪ (B ⊂ A)</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="sources.qrc">
+                  <normaloff>:/icons/icons/FM_TransBG/FM_1_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_1_TransBG.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>
+\nВсе объекты из А и из В. \nДубликаты - оба значения (дескриптора)  </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-InAandInB_DubIt-OnlyAVals">
+                <property name="text">
+                 <string>(A ∪ B)</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nВсе объекты из А и из В. \nДубликаты - значения только из А  </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-InAandInB_WithoutDublIt">
+                <property name="text">
+                 <string>(A ∪ B) \ (A ∩ B)</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nВсе объекты из А и из В \nкроме дубликатов </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-InAandB_DublIt-BothVals">
+                <property name="text">
+                 <string>(A ⊂ B)</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nТолько дубликаты из А и В, \nзначения из обоих </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-InAandB_DublIt-OnlyAVals">
+                <property name="text">
+                 <string>(A ∩ B)</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nТолько дубликаты из А и В, \nзначение только из А </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-OnlyA_WithoutDublIt">
+                <property name="text">
+                 <string>A \ (A ⊂ B)</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nВсе объекты только из А \nкроме тех которые встречаются в В </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-OnlyA_DubIt-OnlyBVals">
+                <property name="text">
+                 <string>A ∪ (B ⊂ A)</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nВсе объекты из А, \nдубликаты значение только из В </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-SingleAFile">
+                <property name="text">
+                 <string>A</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nВсе объекты из А, \nесли дубликаты отсутсвуют </string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCommandLinkButton" name="It-SingleAFile_and_It-SingleBFile">
+                <property name="text">
+                 <string>A + B</string>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>60</width>
+                  <height>60</height>
+                 </size>
+                </property>
+                <property name="description">
+                 <string>\nВсе объекты из А и Все объекты из В, \nдесли убликаты отсуствуют </string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
           </widget>
          </widget>
         </item>
@@ -240,27 +406,34 @@
      <x>0</x>
      <y>0</y>
      <width>912</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu">
+   <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="addFileAct"/>
+    <addaction name="closeFileAction"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
    </widget>
-   <widget class="QMenu" name="menu_2">
+   <widget class="QMenu" name="menuChart">
     <property name="title">
      <string>Chart</string>
     </property>
+    <addaction name="chartBuildAct"/>
    </widget>
-   <widget class="QMenu" name="menu_3">
+   <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>Справка</string>
     </property>
+    <addaction name="githubAct"/>
+    <addaction name="separator"/>
    </widget>
-   <addaction name="menu"/>
-   <addaction name="menu_2"/>
-   <addaction name="menu_3"/>
+   <addaction name="menuFile"/>
+   <addaction name="menuChart"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -273,7 +446,7 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="openFileAction">
    <property name="icon">
-    <iconset>
+    <iconset resource="sources.qrc">
      <normaloff>:/icons/icons/tableA.png</normaloff>:/icons/icons/tableA.png</iconset>
    </property>
    <property name="text">
@@ -284,21 +457,6 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+O</string>
-   </property>
-  </action>
-  <action name="originalTextAction">
-   <property name="icon">
-    <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/fileA.png</normaloff>:/icons/icons/fileA.png</iconset>
-   </property>
-   <property name="text">
-    <string>Load text file</string>
-   </property>
-   <property name="toolTip">
-    <string>Vierw CSV file is plain text</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Shift+O</string>
    </property>
   </action>
   <action name="actionQuit">
@@ -389,16 +547,6 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+Alt+G, Ctrl+Alt+H</string>
-   </property>
-  </action>
-  <action name="actionLayout_1">
-   <property name="text">
-    <string>Layout 1</string>
-   </property>
-  </action>
-  <action name="actionLayout_2">
-   <property name="text">
-    <string>Layout 2</string>
    </property>
   </action>
  </widget>

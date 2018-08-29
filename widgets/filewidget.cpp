@@ -32,13 +32,17 @@ void FileWidget::setName(const QString &name)
 
 void FileWidget::setPath(const QString &path)
 {
-    path_ = path;
-    ui->pathLineEdit->setText(path);
-    setName(FileService::fileName(path));
+    QFileInfo fi(path);
+    if(fi.exists())
+    {
+        path_ = path;
+        emit filePathChenged(path_);
+        ui->pathLineEdit->setText(path);
+        setName(FileService::fileName(path));
 
-    if(FileService::fileExtension(path) == "csv")
-        setType(FileType::CSV);
-
+        if(FileService::fileExtension(path) == "csv")
+            setType(FileType::CSV);
+    }
     else
     {
         //TODO:: месадж бокс ошибки если юзер выбрал не тот файл и запуск открытия по новой

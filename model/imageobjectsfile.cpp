@@ -14,11 +14,6 @@ void ImageObjectsFile::setModel(QStandardItemModel *model)
     model_ = model;
 }
 
-QStringList ImageObjectsFile::descrNameList() const
-{
-    return descrNameList_;
-}
-
 void ImageObjectsFile::setDescrNameList(const QStringList &descrNameList)
 {
     descrNameList_ = descrNameList;

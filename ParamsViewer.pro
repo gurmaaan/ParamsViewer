@@ -50,6 +50,6 @@ FORMS += \
         widgets/filewidget.ui
 
 RESOURCES += \
-    sources.qrc
+        sources.qrc
 
 win32: RC_FILE = iconsource.rc

@@ -13,13 +13,13 @@ public:
     explicit ImageObjectsFile(QObject *parent = nullptr);
     ImageObjectsFile(QString path, QObject *parent = nullptr);
 
-    inline QString filePath() const { return filePath_; }
-    inline QStandardItemModel *model() const { return model_; }
-    inline QStringList descrNameList() const;
-    inline int colInFileCnt() const { return colInFileCnt_; }
-    inline QStringList objNamesList() const { return objNamesList_; }
-    inline int rowInFileCnt() const { return rowInFileCnt_; }
-    inline QVector<Obj *> obOnImVect() const { return obOnImVect_; }
+    inline QString              filePath()      const { return filePath_;       }
+    inline QStandardItemModel   *model()        const { return model_;          }
+    inline QStringList          descrNameList() const { return descrNameList_;  }
+    inline int                  colInFileCnt()  const { return colInFileCnt_;   }
+    inline QStringList          objNamesList()  const { return objNamesList_;   }
+    inline int                  rowInFileCnt()  const { return rowInFileCnt_;   }
+    inline QVector<Obj *>       obOnImVect()    const { return obOnImVect_;     }
 
 public slots:
     void loadCSV(const QString &filePath);
@@ -32,6 +32,8 @@ public slots:
 
 signals:
     void modelChenged(QStandardItemModel* newModel);
+    void fileColCntChanged(int newColCnt);
+    void fileRowCntChanged(int newRowCnt);
 
 private:
     QString filePath_;
@@ -43,6 +45,8 @@ private:
     QStringList descrNameList_;
 
     QStandardItemModel *model_;
+
+    QVector<Obj *> parseObjVector(QString filePath) const;
 };
 
 #endif // IMAGEOBJECTSFILE_H

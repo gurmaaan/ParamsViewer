@@ -3,6 +3,9 @@
         <file>icons/favicon.png</file>
         <file>icons/fileA.png</file>
         <file>icons/fileB.png</file>
+        <file>icons/fileLeft.png</file>
+        <file>icons/fileRight.png</file>
+        <file>icons/tableRight.png</file>
         <file>icons/graph.png</file>
         <file>icons/tableA.png</file>
         <file>icons/tableB.png</file>
@@ -18,5 +21,23 @@
         <file>icons/build.png</file>
         <file>icons/calc.png</file>
         <file>icons/github.png</file>
+        <file>icons/FM_TransBG/FM_1_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_2_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_3_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_4_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_5_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_6_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_7_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_8_TransBG.png</file>
+        <file>icons/FM_TransBG/FM_9_TransBG.png</file>
+        <file>icons/FM_WhiteBG/FM_1_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_2_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_3_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_4_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_5_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_6_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_7_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_8_WhiteBG.png</file>
+        <file>icons/FM_WhiteBG/FM_9_WhiteBG.png</file>
     </qresource>
 </RCC>

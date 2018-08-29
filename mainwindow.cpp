@@ -10,13 +10,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    applyScreenSettings();
 
+    imOF_ = new ImageObjectsFile();
+
+    applyScreenSettings();
+    connectAll();
+    initUI();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::messageResiver(QString message)
+{
+    qDebug().noquote() << message;
+    ui->statusBar->showMessage(message, _MSG_TIME_);
 }
 
 void MainWindow::on_addFileBtn_clicked()
@@ -33,4 +43,15 @@ void MainWindow::applyScreenSettings()
     QRect sR = (scrns.count() > 1) ? scrns.last()->geometry() : scrns.first()->geometry();
     setGeometry(sR);
     showMaximized();
+}
+
+void MainWindow::connectAll()
+{
+    connect(ui->fileWidget, &FileWidget::filePathChenged,
+            imOF_, &ImageObjectsFile::loadCSV);
+}
+
+void MainWindow::initUI()
+{
+
 }

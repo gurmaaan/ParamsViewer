@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QScreen>
-
+#include <QtDebug>
 #include "model/imageobjectsfile.h"
 
 extern const int _MSG_TIME_;
@@ -21,12 +21,18 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void messageResiver(QString message);
+
 private slots:
     void on_addFileBtn_clicked();
 
 private:
     Ui::MainWindow *ui;
     void applyScreenSettings();
+    ImageObjectsFile *imOF_;
+    void connectAll();
+    void initUI();
 };
 
 #endif // MAINWINDOW_H
