@@ -53,5 +53,19 @@ void MainWindow::connectAll()
 
 void MainWindow::initUI()
 {
+    QHeaderView *hH = ui->firstFileTableView->horizontalHeader();
+    hH->resetDefaultSectionSize();
+    hH->setTextElideMode(Qt::ElideNone);
+    hH->resizeSections(QHeaderView::ResizeToContents);
+    hH->setSectionResizeMode(QHeaderView::Interactive);
+    hH->setSortIndicatorShown(false);
 
+    QHeaderView *vH = ui->firstFileTableView->verticalHeader();
+    vH->setAlternatingRowColors(true);
+    vH->setSectionResizeMode(QHeaderView::Stretch);
+    vH->setSectionResizeMode(QHeaderView::Interactive);
+
+    //----------------------------------
+
+    ui->splitter->setSizes( QList<int>({INT_MAX, INT_MAX}) );
 }
