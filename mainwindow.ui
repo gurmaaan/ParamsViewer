@@ -29,8 +29,8 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>220</width>
-        <height>175</height>
+        <width>258</width>
+        <height>208</height>
        </size>
       </property>
       <property name="features">
@@ -47,10 +47,16 @@
         <item>
          <widget class="QToolBox" name="toolBox">
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+           <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>240</width>
+            <height>0</height>
+           </size>
           </property>
           <property name="currentIndex">
            <number>0</number>
@@ -60,18 +66,31 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>202</width>
-             <height>79</height>
+             <width>240</width>
+             <height>425</height>
             </rect>
            </property>
+           <attribute name="icon">
+            <iconset resource="sources.qrc">
+             <normaloff>:/icons/icons/fileA.png</normaloff>:/icons/icons/fileA.png</iconset>
+           </attribute>
            <attribute name="label">
             <string>Files</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
              <layout class="QVBoxLayout" name="filesLayout">
+              <property name="sizeConstraint">
+               <enum>QLayout::SetMinimumSize</enum>
+              </property>
               <item>
                <widget class="FileWidget" name="fileWidget">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <property name="title">
                  <string/>
                 </property>
@@ -97,7 +116,23 @@
               <property name="shortcut">
                <string>Ctrl+Shift+O</string>
               </property>
+              <property name="description">
+               <string>You can </string>
+              </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
             </item>
            </layout>
           </widget>
@@ -106,8 +141,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>202</width>
-             <height>69</height>
+             <width>240</width>
+             <height>425</height>
             </rect>
            </property>
            <attribute name="label">
@@ -115,19 +150,6 @@
            </attribute>
           </widget>
          </widget>
-        </item>
-        <item>
-         <spacer name="verticalSpacer">
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>
@@ -203,6 +225,136 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="openFileAction">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/tableA.png</normaloff>:/icons/icons/tableA.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Open comma separated file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="originalTextAction">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/fileA.png</normaloff>:/icons/icons/fileA.png</iconset>
+   </property>
+   <property name="text">
+    <string>Load text file</string>
+   </property>
+   <property name="toolTip">
+    <string>Vierw CSV file is plain text</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/quit.png</normaloff>:/icons/icons/quit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Close app without saving</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="closeFileAction">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/closeFile.png</normaloff>:/icons/icons/closeFile.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="toolTip">
+    <string>Close file and clear tables and graphs</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
+  </action>
+  <action name="addFileAct">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/add.png</normaloff>:/icons/icons/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+   <property name="toolTip">
+    <string>Add the 2nd file for calculation</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="pointsAct">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/calc.png</normaloff>:/icons/icons/calc.png</iconset>
+   </property>
+   <property name="text">
+    <string>Build points table</string>
+   </property>
+   <property name="toolTip">
+    <string>Generate the table with points of chart and put it into bottom table</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="chartBuildAct">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/chart.png</normaloff>:/icons/icons/chart.png</iconset>
+   </property>
+   <property name="text">
+    <string>View on chart</string>
+   </property>
+   <property name="toolTip">
+    <string>Put user's set to the chart </string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="githubAct">
+   <property name="icon">
+    <iconset resource="sources.qrc">
+     <normaloff>:/icons/icons/github.png</normaloff>:/icons/icons/github.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open GitHub</string>
+   </property>
+   <property name="toolTip">
+    <string>Virew a development proccess in the gIThUB</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+G, Ctrl+Alt+H</string>
+   </property>
+  </action>
+  <action name="actionLayout_1">
+   <property name="text">
+    <string>Layout 1</string>
+   </property>
+  </action>
+  <action name="actionLayout_2">
+   <property name="text">
+    <string>Layout 2</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

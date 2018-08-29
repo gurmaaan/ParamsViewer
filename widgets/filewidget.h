@@ -34,6 +34,12 @@ public slots:
    void setRowCnt(int rowCnt);
    void setColCnt(int colCnt);
 
+signals:
+   void filePathChenged(QString newPath);
+
+private slots:
+   void on_pathBtn_clicked();
+
 private:
     Ui::FileWidget *ui;
     QString name_;

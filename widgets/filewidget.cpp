@@ -41,10 +41,10 @@ void FileWidget::setPath(const QString &path)
 
     else
     {
+        //TODO:: месадж бокс ошибки если юзер выбрал не тот файл и запуск открытия по новой
         //open error msg box
         //reopen file
     }
-    //TODO:: месадж бокс ошибки если юзер выбрал не тот файл и запуск открытия по новой
 }
 
 
@@ -78,11 +78,19 @@ void FileWidget::setColCnt(int colCnt)
 void FileWidget::setProgress(int currentRow)
 {
     progress_ = currentRow;
+    ui->progressBar->setValue(currentRow);
 }
 
 void FileWidget::setMaxProgress(int totalFileRowsCnt)
 {
-    //всего строк
+    //totalFileRowsCnt = всего строк, когда в др методах текущая строка
     ui->sizeRowSpin->setMaximum(totalFileRowsCnt);
     ui->progressBar->setMaximum(totalFileRowsCnt - 1);
+}
+
+void FileWidget::on_pathBtn_clicked()
+{
+    QString fp = FileService::initDialogAndGetOpenedFileName(Msg::header(MessageType::SelectFile), FileType::CSV);
+    setPath(fp);
+    emit filePathChenged(fp);
 }

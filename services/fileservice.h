@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QTextStream>
 #include <QTextCodec>
+#include <QFileInfo>
 
 #include "static.h"
 

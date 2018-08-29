@@ -61,7 +61,7 @@ QString FileService::fileTypeStr(FileType fType)
     QString fileTypeStr = "*";
     switch (fType) {
     case FileType::Image:
-        fileTypeStr = "Image PNG(*.png);;Изображение JPG(*.jpg);;Изображение BMP(*.bmp);;";
+        fileTypeStr = "Image PNG(*.png);;Image JPG(*.jpg);;Image BMP(*.bmp);;";
         break;
     case FileType::CSV:
         fileTypeStr = "Comma Separatred table *.CSV";
@@ -70,7 +70,7 @@ QString FileService::fileTypeStr(FileType fType)
         fileTypeStr = "Excel spreadsheet(*.xls*)";
         break;
     case FileType::Dir:
-        fileTypeStr = "Папка";
+        fileTypeStr = "Folder";
         break;
     }
     return fileTypeStr;
@@ -84,8 +84,16 @@ QString FileService::fileExtension(QString path)
 
 QString FileService::fileName(QString path)
 {
-    QStringList partsList = path.split("\\");
-    return partsList.last();
+    QString fileName;
+    if(path.contains("\\"))
+        fileName = path.split("\\").last();
+    else
+    {
+        QFileInfo fi(path);
+        fileName = fi.fileName();
+    }
+
+    return fileName;
 }
 
 
