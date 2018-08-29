@@ -24,15 +24,29 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+        model/descriptor.cpp \
+        model/obj.cpp \
+        services/fileservice.cpp \
+        services/floatservice.cpp \
+        services/itemsservice.cpp \
+        services/stringservice.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+        model/descriptor.h \
+        model/obj.h \
+        services/fileservice.h \
+        services/floatservice.h \
+        services/itemsservice.h \
+        services/stringservice.h \
+        static.h
 
 FORMS += \
         mainwindow.ui
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+RESOURCES += \
+    sources.qrc \
+    sources.qrc
+
+win32: RC_FILE = iconsource.rc
