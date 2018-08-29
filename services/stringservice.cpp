@@ -78,12 +78,6 @@ QRgb StringService::getCSSClrProp(QString stylesheetStr, QString cssPropName)
     return clrCode;
 }
 
-QString StringService::cutFilePath(QString longString)
-{
-    QStringList partsList = longString.split("\\");
-    return partsList.last();
-}
-
 QString StringService::replaceForDouble(QString &strWithComme)
 {
     return strWithComme.replace(",", ".");
@@ -138,25 +132,22 @@ QString StringService::getFirstRow(QString str)
     return str.split("\n").first();
 }
 
-QString StringService::multipleLine(QString str, QChar delimetr)
+QString StringService::multipleLineFromSingle(QString str, QChar delimetr, int strsCnt)
 {
-    int midUnderScore = str.count(delimetr) / 2 + 1;
-    int lastUnderScore = str.count(delimetr );
-    int underScoreCounter = 0;
+    int midPos = str.count(delimetr) / 2 + 1;
+    int lastPos = str.count(delimetr );
+    int cnt = 0;
     for(int i = 0; i < str.length(); i++)
     {
-        if(str.at(i) == delimetr)
-        {
-            underScoreCounter++;
-            if(underScoreCounter == midUnderScore || underScoreCounter == lastUnderScore)
-                str.replace(i, 1, "\n");
+        cnt++;
+        if( (str.at(i)==delimetr) && ( (cnt==midPos) || ((strsCnt==3) && (cnt==lastPos)) ))
+            str.replace(i, 1, "\n");
 
-        }
     }
     return str;
 }
 
-QString StringService::singleLine(QString str)
+QString StringService::singleLineFromMult(QString str)
 {
     for(int i = 0; i < str.length(); i++)
     {

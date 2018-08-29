@@ -5,8 +5,9 @@
 #include <QDebug>
 #include <QStandardItem>
 
-#include "Services/itemsservice.h"
-#include "Services/stringservice.h"
+#include "services/itemsservice.h"
+#include "services/stringservice.h"
+#include "services/fileservice.h"
 #include "descriptor.h"
 
 class Obj : public QObject

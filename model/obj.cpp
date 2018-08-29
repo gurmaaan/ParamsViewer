@@ -23,13 +23,13 @@ Obj::Obj(const Obj &o)
 Obj::Obj(int id, QString fullName)
     :id_(id), fullName_(fullName)
 {
-    name_ = StringService::cutFilePath( fullName_ );
+    name_ = FileService::fileName( fullName_ );
 }
 
 Obj::Obj(int id, QString fullName, QVector<Descriptor *> &descriptors)
     :id_(id), fullName_(fullName)
 {
-    name_ = StringService::cutFilePath( fullName_ );
+    name_ = FileService::fileName( fullName_ );
     for(int i = 0; i < descriptors.count(); i++)
     {
         Descriptor *desc = new Descriptor(descriptors.at(i)->objId(), descriptors.at(i)->id(), descriptors.at(i)->name(), descriptors.at(i)->data());

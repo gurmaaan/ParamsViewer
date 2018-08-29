@@ -30,7 +30,8 @@ SOURCES += \
         services/fileservice.cpp \
         services/floatservice.cpp \
         services/itemsservice.cpp \
-        services/stringservice.cpp
+        services/stringservice.cpp \
+        widgets/filewidget.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,10 +41,12 @@ HEADERS += \
         services/floatservice.h \
         services/itemsservice.h \
         services/stringservice.h \
-        static.h
+        static.h \
+        widgets/filewidget.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+        widgets/filewidget.ui
 
 RESOURCES += \
     sources.qrc \

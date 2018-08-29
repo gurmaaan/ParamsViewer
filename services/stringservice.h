@@ -25,14 +25,12 @@ public:
     static QString getFirstCol(QString str);
     static QString getFirstRow(QString str);
 
-    static QString multipleLine(QString str, QChar delimetr = '_');
-    static QString singleLine(QString str);
+    static QString multipleLineFromSingle(QString str, QChar delimetr = '_', int strsCnt = 3);
+    static QString singleLineFromMult(QString str);
 
     static QStringList splitAndRemoveFirstColOfFirstRow(QString fileText);
     static QStringList splitAndRemoveFirstRow(QString fileText);
     static QStringList splitBySemicolon(QString str);
-
-    static QString cutFilePath(QString longString);
 
     static QString replaceForDouble(QString &strWithComme);
     static bool notEmpty(QString str);
