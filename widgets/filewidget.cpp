@@ -59,7 +59,7 @@ void FileWidget::setType(const FileType &type)
 
 void FileWidget::setRowCnt(int rowCnt)
 {
-    //current row
+    //вызывается при адой новой обработке объекта, здесь это текущая строка
     rowCnt_ = rowCnt;
     ui->sizeRowSpin->setValue(rowCnt);
 }

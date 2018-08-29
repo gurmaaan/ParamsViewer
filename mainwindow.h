@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QScreen>
+
+#include "model/imageobjectsfile.h"
 
 namespace Ui {
 class MainWindow;
@@ -20,6 +23,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void applyScreenSettings();
 };
 
 #endif // MAINWINDOW_H

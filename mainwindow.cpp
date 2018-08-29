@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    applyScreenSettings();
+
 }
 
 MainWindow::~MainWindow()
@@ -15,5 +17,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_addFileBtn_clicked()
 {
+    //TODO:: implement me
+    //Вставить новый виджет в layOut
+    //Вставить таб с таблицей
+    //Активировать сравнялку
+}
 
+void MainWindow::applyScreenSettings()
+{
+    QList<QScreen *> scrns = QGuiApplication::screens();
+    QRect sR = (scrns.count() > 1) ? scrns.last()->geometry() : scrns.first()->geometry();
+    setGeometry(sR);
+    showMaximized();
 }

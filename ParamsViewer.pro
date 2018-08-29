@@ -27,6 +27,7 @@ SOURCES += \
         mainwindow.cpp \
         model/descriptor.cpp \
         model/obj.cpp \
+        model/imageobjectsfile.cpp \
         services/fileservice.cpp \
         services/floatservice.cpp \
         services/itemsservice.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
         mainwindow.h \
         model/descriptor.h \
         model/obj.h \
+        model/imageobjectsfile.h \
         services/fileservice.h \
         services/floatservice.h \
         services/itemsservice.h \
