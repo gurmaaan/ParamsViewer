@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+const int _MSG_TIME_ = 4500;
+const QString _GURMAAAN_ = "https://github.com/gurmaaan/ParamsViewer";
+
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)

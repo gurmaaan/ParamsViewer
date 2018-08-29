@@ -43,7 +43,6 @@ HEADERS += \
         services/floatservice.h \
         services/itemsservice.h \
         services/stringservice.h \
-        static.h \
         widgets/filewidget.h
 
 FORMS += \
@@ -51,7 +50,6 @@ FORMS += \
         widgets/filewidget.ui
 
 RESOURCES += \
-    sources.qrc \
     sources.qrc
 
 win32: RC_FILE = iconsource.rc

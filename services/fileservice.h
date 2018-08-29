@@ -1,6 +1,10 @@
 #ifndef FILESERVICE_H
 #define FILESERVICE_H
 
+#ifndef ENCODING
+    #define ENCODING "Windows-1251"
+#endif
+
 #include <QObject>
 #include <QFileDialog>
 #include <QStandardPaths>
@@ -10,7 +14,7 @@
 #include <QTextCodec>
 #include <QFileInfo>
 
-#include "static.h"
+extern const QString _DATA_PATH_;
 
 enum class FileType
 {
@@ -41,16 +45,24 @@ enum class UsersAction
     Open,
     Close,
     Cancel,
-    Ok
+    Continue
 };
 
 enum class MessageType
 {
-    Info,
+    Status,
+    Completed,
     Warrning,
     Error,
     SelectFile,
-    SelectDir
+    SelectCol
+};
+
+enum class ErrorType
+{
+    EmptyCell,
+    FileNotExist,
+    DirNotExist
 };
 
 class Msg
@@ -58,6 +70,16 @@ class Msg
 public:
     Msg();
     static QString header(MessageType type);
+    static QString body(MessageType type);
+    static QString body(ErrorType type);
+    static QString wouldYouLike(UsersAction uAct);
+    inline static QString endline() { return "\n"; }
+    inline static QString ask() { return " ? \n"; }
+    inline static QString plus() { return " + "; }
+    inline static QString is() { return " : "; }
+    inline static QString dir() { return "Directory "; }
+    inline static QString file() { return "File "; }
+    inline static QString missing() { return " doesn't exist."; }
 
 private:
     static QString getActionString(UsersAction act);

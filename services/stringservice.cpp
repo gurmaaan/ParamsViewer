@@ -1,5 +1,7 @@
 #include "stringservice.h"
 
+const QString _CSSBGCLR_ = "background-color";
+
 StringService::StringService(QObject *parent) :
     QObject(parent)
 {

@@ -58,7 +58,7 @@ QSize ItemsService::sizeOfOneSymb(QStandardItem *anyItem)
 {
     QFont itemFont(anyItem->font().family(), anyItem->font().pointSize());
     QFontMetrics fm(itemFont);
-    int w = fm.width(SYMB_MAXSIZE_W);
+    int w = fm.width("W");
     int h = fm.height();
     return QSize(w,h);
 }

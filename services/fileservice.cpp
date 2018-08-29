@@ -1,5 +1,7 @@
 #include "fileservice.h"
 
+const QString _DATA_PATH_ = "ParamsViewer/data";
+
 FileService::FileService(QObject *parent) : QObject(parent)
 {
 
@@ -7,12 +9,8 @@ FileService::FileService(QObject *parent) : QObject(parent)
 
 QString FileService::initDialogAndGetOpenedFileName(QString title, FileType fType)
 {
-    QString fileName = QFileDialog::getOpenFileName(nullptr,
-                                                    title,
-                                                    requiredPath(QDir::current(), DATA_PATH),
-                                                    FileService::fileTypeStr(fType) );
+    QString fileName = QFileDialog::getOpenFileName(nullptr, title, requiredPath(QDir::current(), _DATA_PATH_), FileService::fileTypeStr(fType) );
     return fileName;
-
 }
 
 QString FileService::requiredPath(QDir currentDir, const QString &redirect, QString defaultLocation)
@@ -33,7 +31,7 @@ QString FileService::requiredPath(QDir currentDir, const QString &redirect, QStr
         return path;
     } else
     {
-       qDebug() << tr("Directory ") << currentDir.absolutePath() << " + " <<  redirect << tr("doesn't exist");
+       qDebug() << Msg::dir() << currentDir.absolutePath() << Msg::plus() <<  redirect << Msg::missing();
        return "";
     }
 }
@@ -44,7 +42,7 @@ QString FileService::getTextOfFile(QString path)
     QString textOfFile;
     if ( !file.open(QFile::ReadOnly | QFile::Text ) )
     {
-        qDebug() << tr(DOESNT_EXIST);
+        qDebug() << QString(Msg::body(ErrorType::FileNotExist));
         textOfFile = "";
     } else
     {
@@ -58,19 +56,19 @@ QString FileService::getTextOfFile(QString path)
 
 QString FileService::fileTypeStr(FileType fType)
 {
-    QString fileTypeStr = "*";
+    QString fileTypeStr = tr("*");
     switch (fType) {
     case FileType::Image:
-        fileTypeStr = "Image PNG(*.png);;Image JPG(*.jpg);;Image BMP(*.bmp);;";
+        fileTypeStr = tr("Image PNG(*.png);;Image JPG(*.jpg);;Image BMP(*.bmp);;");
         break;
     case FileType::CSV:
-        fileTypeStr = "Comma Separatred table *.CSV";
+        fileTypeStr = tr("Comma Separatred table *.CSV");
         break;
     case FileType::Excel:
-        fileTypeStr = "Excel spreadsheet(*.xls*)";
+        fileTypeStr = tr("Excel spreadsheet(*.xls*)");
         break;
     case FileType::Dir:
-        fileTypeStr = "Folder";
+        fileTypeStr = tr("Folder");
         break;
     }
     return fileTypeStr;
@@ -116,8 +114,8 @@ QString Msg::getActionString(UsersAction act)
         case UsersAction::Cancel:
             actionStr = "Cancel";
             break;
-        case UsersAction::Ok:
-            actionStr = "Ok";
+        case UsersAction::Continue:
+            actionStr = "continue";
             break;
     }
     return actionStr;
@@ -128,8 +126,11 @@ QString Msg::header(MessageType type)
     QString messageHeaderStr = " ";
     switch (type)
     {
-        case MessageType::Info:
-            messageHeaderStr = "Status";
+        case MessageType::Status:
+            messageHeaderStr = "Status of ";
+            break;
+        case MessageType::Completed:
+            messageHeaderStr = "The operation completed";
             break;
         case MessageType::Warrning:
             messageHeaderStr = "Warning";
@@ -140,10 +141,62 @@ QString Msg::header(MessageType type)
         case MessageType::SelectFile:
             messageHeaderStr = "Please select the file";
             break;
-        case MessageType::SelectDir:
-            messageHeaderStr = "Please select the directory";
+        case MessageType::SelectCol:
+            messageHeaderStr = "Select the column";
             break;
     }
     return messageHeaderStr;
+}
+
+QString Msg::body(MessageType type)
+{
+    QString mesgBody = "";
+    switch (type)
+    {
+    case MessageType::Completed:
+        mesgBody = "The block completed in ";
+        break;
+    case MessageType::Warrning:
+        mesgBody = "Warning! ";
+        break;
+    case MessageType::Error:
+        mesgBody = "Error";
+        break;
+    case MessageType::SelectFile:
+        mesgBody = "Please chose the file with ";
+        break;
+    case MessageType::SelectCol:
+        mesgBody = "Select the column...";
+        break;
+    default:
+        mesgBody = " ";
+    }
+    return mesgBody;
+}
+
+QString Msg::body(ErrorType type)
+{
+    QString errMsg = " ";
+    switch (type)
+    {
+        case ErrorType::EmptyCell:
+            errMsg = "The document contains empty cells.";
+            break;
+        case ErrorType::FileNotExist:
+            errMsg = "File doesn't exist";
+            break;
+        case ErrorType::DirNotExist:
+            errMsg = "Directory doesn't exist";
+            break;
+        default:
+            errMsg = " ";
+            break;
+    }
+    return errMsg;
+}
+
+QString Msg::wouldYouLike(UsersAction uAct)
+{
+    return "Would you like to " + getActionString(uAct) + ask();
 }
 

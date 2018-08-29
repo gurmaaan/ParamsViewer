@@ -8,7 +8,6 @@
 #include <QColor>
 #include <QFontMetrics>
 #include <QPalette>
-#include "static.h"
 
 class ItemsService : public QObject
 {

@@ -6,6 +6,9 @@
 
 #include "model/imageobjectsfile.h"
 
+extern const int _MSG_TIME_;
+extern const QString _GURMAAAN_;
+
 namespace Ui {
 class MainWindow;
 }

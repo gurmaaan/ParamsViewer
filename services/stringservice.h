@@ -8,7 +8,7 @@
 #include <QTime>
 #include <QDebug>
 
-#include "static.h"
+extern const QString _CSSBGCLR_;
 
 class StringService : public QObject
 {
@@ -19,7 +19,7 @@ public:
     static QString getCornerString(QString fileText);
     static QString getTimeMessage(QTime t1, QTime t2, QString blockName = "");
 
-    static QString changeCSSClrProp(QString stylesheetStr, QRgb newPropVal, QString cssPropName = CSSBGCLR);
+    static QString changeCSSClrProp(QString stylesheetStr, QRgb newPropVal, QString cssPropName = _CSSBGCLR_);
     static QRgb getCSSClrProp(QString stylesheetStr, QString cssPropName);
     
     static QString getFirstCol(QString str);
