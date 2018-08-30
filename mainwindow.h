@@ -5,6 +5,7 @@
 #include <QScreen>
 #include <QtDebug>
 #include "model/imageobjectsfile.h"
+#include "bulkutilitydialog.h"
 
 extern const int _MSG_TIME_;
 extern const QString _GURMAAAN_;
@@ -26,11 +27,14 @@ public slots:
 
 private slots:
     void on_addFileBtn_clicked();
+    void on_addFileAct_triggered();
+    void on_actionQuit_triggered();
 
 private:
     Ui::MainWindow *ui;
     void applyScreenSettings();
     ImageObjectsFile *imOF_;
+    BulkUtilityDialog *bulkWindow;
     void connectAll();
     void initUI();
 };

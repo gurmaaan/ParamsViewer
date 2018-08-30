@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BulkUtilityDialog</class>
+ <widget class="QDialog" name="BulkUtilityDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>742</width>
+    <height>308</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QCommandLinkButton" name="It_InAandInB_DubIt_BothVals">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>1. (A ∪ B) ∪ (A ⊂ B) ∪ (B ⊂ A)</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_1_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_1_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Все объекты из А и из В. 
+Дубликаты - оба значения (дескриптора)  </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QCommandLinkButton" name="It_InAandInB_DubIt_OnlyAVals">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>2. A ∪ B</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_2_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_2_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Все объекты из А и из В. 
+Дубликаты - значения только из А  </string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QCommandLinkButton" name="It_InAandInB_WithoutDublIt">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>3. (A ∪ B) \ (A ∩ B)</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_3_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_3_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Все объекты из А и из В 
+кроме дубликатов </string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QCommandLinkButton" name="It_InAandB_DublIt_BothVals">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>4. A ⊂ B</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_4_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_4_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Только дубликаты из А и В,
+но значения из обоих </string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QCommandLinkButton" name="It_InAandB_DublIt_OnlyAVals">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>5. A ∩ B</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_5_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_5_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Только дубликаты из А и В, 
+значение только из А </string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QCommandLinkButton" name="It_OnlyA_WithoutDublIt">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>6. A \ (A ⊂ B)</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_6_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_6_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Все объекты только из А
+кроме тех которые встречаются в В </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QCommandLinkButton" name="It_OnlyA_DubIt_OnlyBVals">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>7. A ∪ (B ⊂ A)</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_7_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_7_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Все объекты из А, 
+дубликаты значение только из В </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QCommandLinkButton" name="It_SingleAFile">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>8. A</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_8_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_8_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Все объекты из А, 
+если дубликаты отсутсвуют </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QCommandLinkButton" name="It_SingleAFile_and_It_SingleBFile">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>9. A + B</string>
+       </property>
+       <property name="icon">
+        <iconset resource="sources.qrc">
+         <normaloff>:/icons/icons/FM_TransBG/FM_9_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_9_TransBG.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>60</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="description">
+        <string>
+Все объекты из А и Все объекты из В, 
+если убликаты отсуствуют </string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="sources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>BulkUtilityDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>BulkUtilityDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

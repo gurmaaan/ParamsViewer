@@ -55,7 +55,8 @@ enum class MessageType
     Warrning,
     Error,
     SelectFile,
-    SelectCol
+    SelectCol,
+    SuccessfullyReaded
 };
 
 enum class ErrorType

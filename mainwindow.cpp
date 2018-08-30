@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     imOF_ = new ImageObjectsFile();
-
+    bulkWindow = new BulkUtilityDialog();
     applyScreenSettings();
     connectAll();
     initUI();
@@ -32,6 +32,7 @@ void MainWindow::messageResiver(QString message)
 void MainWindow::on_addFileBtn_clicked()
 {
     //TODO:: implement me
+    ui->addFileAct->trigger();
     //Вставить новый виджет в layOut
     //Вставить таб с таблицей
     //Активировать сравнялку
@@ -47,8 +48,10 @@ void MainWindow::applyScreenSettings()
 
 void MainWindow::connectAll()
 {
-    connect(ui->fileWidget, &FileWidget::filePathChenged,
-            imOF_, &ImageObjectsFile::loadCSV);
+    connect(ui->fileWidget, &FileWidget::fileTextChanged,
+            imOF_, &ImageObjectsFile::loadCSVText);
+    connect(ui->fileWidget, &FileWidget::filePathChanged,
+            imOF_, &ImageObjectsFile::setFilePath);
 }
 
 void MainWindow::initUI()
@@ -68,4 +71,14 @@ void MainWindow::initUI()
     //----------------------------------
 
     ui->splitter->setSizes( QList<int>({INT_MAX, INT_MAX}) );
+}
+
+void MainWindow::on_actionQuit_triggered()
+{
+    QCoreApplication::quit();
+}
+
+void MainWindow::on_addFileAct_triggered()
+{
+    bulkWindow->show();
 }

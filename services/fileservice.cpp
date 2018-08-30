@@ -50,6 +50,7 @@ QString FileService::getTextOfFile(QString path)
          in.setCodec(QTextCodec::codecForName(ENCODING));
          textOfFile = in.readAll();
     }
+    Msg::body(MessageType::SuccessfullyReaded);
     file.close();
     return textOfFile;
 }
@@ -168,6 +169,8 @@ QString Msg::body(MessageType type)
     case MessageType::SelectCol:
         mesgBody = "Select the column...";
         break;
+    case MessageType::SuccessfullyReaded:
+        mesgBody = file() + "successfully readed. "
     default:
         mesgBody = " ";
     }

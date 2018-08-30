@@ -1,6 +1,8 @@
 #include "filewidget.h"
 #include "ui_filewidget.h"
 
+const QString _CSV_ = "csv";
+
 FileWidget::FileWidget(QWidget *parent) :
     QGroupBox(parent),
     ui(new Ui::FileWidget)
@@ -20,15 +22,11 @@ FileWidget::~FileWidget()
     delete ui;
 }
 
-
-
 void FileWidget::setName(const QString &name)
 {
     name_ = name;
     setTitle(name_);
 }
-
-
 
 void FileWidget::setPath(const QString &path)
 {
@@ -36,11 +34,11 @@ void FileWidget::setPath(const QString &path)
     if(fi.exists())
     {
         path_ = path;
-        emit filePathChenged(path_);
+        emit filePathChanged(path_);
         ui->pathLineEdit->setText(path);
         setName(FileService::fileName(path));
 
-        if(FileService::fileExtension(path) == "csv")
+        if(FileService::fileExtension(path) == _CSV_)
             setType(FileType::CSV);
     }
     else
@@ -51,7 +49,10 @@ void FileWidget::setPath(const QString &path)
     }
 }
 
-
+void FileWidget::setFirstColOfFirstRowText(const QString &fileText)
+{
+    ui->firstColOfFirstRowEdit->setPlainText(fileText);
+}
 
 void FileWidget::setType(const FileType &type)
 {
@@ -59,16 +60,14 @@ void FileWidget::setType(const FileType &type)
     ui->typeCB->addItem(FileService::fileTypeStr(type_));
 }
 
-
-
 void FileWidget::setRowCnt(int rowCnt)
 {
     //вызывается при адой новой обработке объекта, здесь это текущая строка
     rowCnt_ = rowCnt;
-    ui->sizeRowSpin->setValue(rowCnt);
+    ui->sizeRowSpin->setMaximum(rowCnt_);
+    ui->progressBar->setMaximum(rowCnt_);
+    ui->sizeRowSpin->setValue(rowCnt_);
 }
-
-
 
 void FileWidget::setColCnt(int colCnt)
 {
@@ -77,24 +76,22 @@ void FileWidget::setColCnt(int colCnt)
     ui->sizeColSpin->setValue(colCnt);
 }
 
-
-
 void FileWidget::setProgress(int currentRow)
 {
     progress_ = currentRow;
-    ui->progressBar->setValue(currentRow);
-}
-
-void FileWidget::setMaxProgress(int totalFileRowsCnt)
-{
-    //totalFileRowsCnt = всего строк, когда в др методах текущая строка
-    ui->sizeRowSpin->setMaximum(totalFileRowsCnt);
-    ui->progressBar->setMaximum(totalFileRowsCnt - 1);
+    ui->sizeRowSpin->setValue(progress_);
+    ui->progressBar->setValue(progress_);
 }
 
 void FileWidget::on_pathBtn_clicked()
 {
     QString fp = FileService::initDialogAndGetOpenedFileName(Msg::header(MessageType::SelectFile), FileType::CSV);
     setPath(fp);
-    emit filePathChenged(fp);
+
+    QString ft = FileService::getTextOfFile(fp);
+    emit fileTextChanged(ft);
+
+    setColCnt( StringService::splitAndRemoveFirstColOfFirstRow(ft).count() + 1 );
+    setRowCnt(StringService::splitAndRemoveFirstRow(ft).count() + 1);
+    setFirstColOfFirstRowText( StringService::multipleLineFromSingle( StringService::getCornerString(ft) , ' ', 2 ) );
 }

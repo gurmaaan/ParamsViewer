@@ -3,12 +3,14 @@
 
 #include <QGroupBox>
 #include <QStandardPaths>
-#include <services/fileservice.h>
-#include <services/stringservice.h>
+#include <fileservice.h>
+#include <stringservice.h>
 
 namespace Ui {
 class FileWidget;
 }
+
+extern const QString _CSV_;
 
 class FileWidget : public QGroupBox
 {
@@ -27,15 +29,16 @@ public:
 
 public slots:
    void setProgress(int progress);
-   void setMaxProgress(int maxProgress);
    void setName(const QString &name);
    void setPath(const QString &path);
+   void setFirstColOfFirstRowText(const QString &fileText);
    void setType(const FileType &type);
    void setRowCnt(int rowCnt);
    void setColCnt(int colCnt);
 
 signals:
-   void filePathChenged(QString newPath);
+   void filePathChanged(QString newPath);
+   void fileTextChanged(QString newText);
 
 private slots:
    void on_pathBtn_clicked();

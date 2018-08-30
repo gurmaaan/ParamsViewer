@@ -3,8 +3,12 @@
 
 #include <QObject>
 #include <QStandardItemModel>
+#include <QMessageBox>
+#include <QStringList>
+
 #include "model/obj.h"
 #include "model/descriptor.h"
+#include "services.h"
 
 class ImageObjectsFile : public QObject
 {
@@ -22,7 +26,8 @@ public:
     inline QVector<Obj *>       obOnImVect()    const { return obOnImVect_;     }
 
 public slots:
-    void loadCSV(const QString &filePath);
+    void setFilePath(const QString &filePath);
+    void loadCSVText(const QString &fileText);
     void setModel(QStandardItemModel *model);
     void setDescrNameList(const QStringList &descrNameList);
     void setObjNamesList(const QStringList &objNamesList);
@@ -34,6 +39,7 @@ signals:
     void modelChenged(QStandardItemModel* newModel);
     void fileColCntChanged(int newColCnt);
     void fileRowCntChanged(int newRowCnt);
+    void firstCOlOfFirstrRowChanged(QString frofcStr);
 
 private:
     QString filePath_;
@@ -43,10 +49,9 @@ private:
     QVector<Obj *> obOnImVect_;
     QStringList objNamesList_;
     QStringList descrNameList_;
-
     QStandardItemModel *model_;
 
-    QVector<Obj *> parseObjVector(QString filePath) const;
+    QVector<Obj *> parseObjVector(QString fileText) const;
 };
 
 #endif // IMAGEOBJECTSFILE_H

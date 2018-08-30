@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>232</width>
-    <height>177</height>
+    <width>261</width>
+    <height>261</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -21,8 +21,8 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>240</width>
-    <height>180</height>
+    <width>261</width>
+    <height>261</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -91,6 +91,31 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item>
+    <widget class="QPlainTextEdit" name="firstColOfFirstRowEdit">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="statusTip">
+      <string>First column of first row</string>
+     </property>
+     <property name="whatsThis">
+      <string>First column of first row</string>
+     </property>
+     <property name="documentTitle">
+      <string/>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="plainText">
+      <string/>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="sizeHRowsLayout">

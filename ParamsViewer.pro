@@ -25,29 +25,38 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
+        bulkutilitydialog.cpp \
         model/descriptor.cpp \
         model/obj.cpp \
         model/imageobjectsfile.cpp \
-        services/fileservice.cpp \
-        services/floatservice.cpp \
-        services/itemsservice.cpp \
-        services/stringservice.cpp \
-        widgets/filewidget.cpp
+        fileservice.cpp \
+        floatservice.cpp \
+        itemsservice.cpp \
+        stringservice.cpp \
+        widgets/filewidget.cpp \
+        widgets/chartwidget.cpp
 
 HEADERS += \
         mainwindow.h \
+        bulkutilitydialog.h \
         model/descriptor.h \
         model/obj.h \
         model/imageobjectsfile.h \
-        services/fileservice.h \
-        services/floatservice.h \
-        services/itemsservice.h \
-        services/stringservice.h \
-        widgets/filewidget.h
+        fileservice.h \
+        floatservice.h \
+        itemsservice.h \
+        stringservice.h \
+        services.h \
+        widgets/filewidget.h \
+        widgets/chartwidget.h
+
+INCLUDEPATH += services
 
 FORMS += \
         mainwindow.ui \
-        widgets/filewidget.ui
+        bulkutilitydialog.ui \
+        widgets/filewidget.ui \
+        widgets/chartwidget.ui
 
 RESOURCES += \
         sources.qrc
