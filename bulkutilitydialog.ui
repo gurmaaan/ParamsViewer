@@ -47,8 +47,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Все объекты из А и из В. 
+        <string>Все объекты из А и из В. 
 Дубликаты - оба значения (дескриптора)  </string>
        </property>
       </widget>
@@ -81,8 +80,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Все объекты из А и из В. 
+        <string>Все объекты из А и из В. 
 Дубликаты - значения только из А  </string>
        </property>
       </widget>
@@ -115,8 +113,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Все объекты из А и из В 
+        <string>Все объекты из А и из В 
 кроме дубликатов </string>
        </property>
       </widget>
@@ -149,8 +146,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Только дубликаты из А и В,
+        <string>Только дубликаты из А и В,
 но значения из обоих </string>
        </property>
       </widget>
@@ -183,9 +179,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Только дубликаты из А и В, 
-значение только из А </string>
+        <string>Только дубликаты из А и В, значение только из А </string>
        </property>
       </widget>
      </item>
@@ -217,8 +211,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Все объекты только из А
+        <string>Все объекты только из А
 кроме тех которые встречаются в В </string>
        </property>
       </widget>
@@ -251,8 +244,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Все объекты из А, 
+        <string>Все объекты из А, 
 дубликаты значение только из В </string>
        </property>
       </widget>
@@ -285,8 +277,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Все объекты из А, 
+        <string>Все объекты из А, 
 если дубликаты отсутсвуют </string>
        </property>
       </widget>
@@ -319,8 +310,7 @@
         </size>
        </property>
        <property name="description">
-        <string>
-Все объекты из А и Все объекты из В, 
+        <string>Все объекты из А и Все объекты из В, 
 если убликаты отсуствуют </string>
        </property>
       </widget>
