@@ -28,6 +28,10 @@
   <property name="windowTitle">
    <string>File</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../sources.qrc">
+    <normaloff>:/source/icons/file_A_ic.png</normaloff>:/source/icons/file_A_ic.png</iconset>
+  </property>
   <property name="autoFillBackground">
    <bool>true</bool>
   </property>
@@ -270,7 +274,7 @@
   <action name="actionOpen_File">
    <property name="icon">
     <iconset resource="../sources.qrc">
-     <normaloff>:/icons/icons/fileRight.png</normaloff>:/icons/icons/fileRight.png</iconset>
+     <normaloff>:/source/icons/file_R_ic.png</normaloff>:/source/icons/file_R_ic.png</iconset>
    </property>
    <property name="text">
     <string>Open File</string>

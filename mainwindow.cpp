@@ -30,6 +30,25 @@ void MainWindow::messageResiver(QString message)
     ui->statusBar->showMessage(message, _MSG_TIME_);
 }
 
+void MainWindow::scrollToCol(int colNum)
+{
+    ui->firstFileTableView->scrollTo(ui->firstFileTableView->model()->index(0, colNum));
+}
+
+void MainWindow::selectChartCols(int xColNum, int yColNum, QColor color)
+{
+    QStandardItemModel* m = imOF_->model();
+    ItemsService::makeAllItemBGColor(m, QColor(Qt::white));
+
+    scrollToCol(xColNum);
+
+    for(int r = 0; r < m->rowCount(); r++)
+    {
+        ItemsService::changeBgColor( m->item(r, xColNum), color);
+        ItemsService::changeBgColor( m->item(r, yColNum), color);
+    }
+}
+
 void MainWindow::on_addFileBtn_clicked()
 {
     //TODO:: implement me
@@ -65,6 +84,13 @@ void MainWindow::connectAll()
             chartW_, &ChartWidget::setModel);
     connect(imOF_, &ImageObjectsFile::rowProccessed,
             ui->fileWidget, &FileWidget::setProgress);
+
+    connect(chartW_, &ChartWidget::updateChart,
+            this, &MainWindow::selectChartCols);
+    connect(chartW_, &ChartWidget::xIndexChanged,
+            this, &MainWindow::scrollToCol);
+    connect(chartW_, &ChartWidget::yIndexChanged,
+            this, &MainWindow::scrollToCol);
 }
 
 void MainWindow::initUI()

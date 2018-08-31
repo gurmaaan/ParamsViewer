@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui widgets charts
 
 TARGET = ParamsViewer
 TEMPLATE = app
@@ -36,7 +36,8 @@ SOURCES += \
         services/stringservice.cpp \
         widgets/bulkutilitydialog.cpp \
         widgets/filewidget.cpp \
-        widgets/chartwidget.cpp
+        widgets/chartwidget.cpp \
+    services/imageservice.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -50,7 +51,8 @@ HEADERS += \
         services.h \
         widgets/bulkutilitydialog.h \
         widgets/filewidget.h \
-        widgets/chartwidget.h
+        widgets/chartwidget.h \
+    services/imageservice.h
 
 FORMS += \
         mainwindow.ui \

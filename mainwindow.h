@@ -26,6 +26,8 @@ public:
 
 public slots:
     void messageResiver(QString message);
+    void scrollToCol(int colNum);
+    void selectChartCols(int xColNum, int yColNum, QColor color);
 
 private slots:
     void on_addFileBtn_clicked();

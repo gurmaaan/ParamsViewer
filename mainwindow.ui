@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset resource="sources.qrc">
-    <normaloff>:/icons/icons/favicon.png</normaloff>:/icons/icons/favicon.png</iconset>
+    <normaloff>:/source/icons/favicon.png</normaloff>:/source/icons/favicon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -80,7 +80,7 @@
           </property>
           <property name="icon">
            <iconset resource="sources.qrc">
-            <normaloff>:/icons/icons/add.png</normaloff>:/icons/icons/add.png</iconset>
+            <normaloff>:/source/icons/file_add_ic.png</normaloff>:/source/icons/file_add_ic.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -295,9 +295,6 @@ For multiple files proccessng</string>
            <property name="dragDropOverwriteMode">
             <bool>false</bool>
            </property>
-           <property name="alternatingRowColors">
-            <bool>true</bool>
-           </property>
            <property name="selectionBehavior">
             <enum>QAbstractItemView::SelectColumns</enum>
            </property>
@@ -394,7 +391,7 @@ For multiple files proccessng</string>
   <action name="openFileAction">
    <property name="icon">
     <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/tableA.png</normaloff>:/icons/icons/tableA.png</iconset>
+     <normaloff>:/source/icons/file_R_ic.png</normaloff>:/source/icons/file_R_ic.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
@@ -409,7 +406,7 @@ For multiple files proccessng</string>
   <action name="actionQuit">
    <property name="icon">
     <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/quit.png</normaloff>:/icons/icons/quit.png</iconset>
+     <normaloff>:/source/icons/app_quit_ic.png</normaloff>:/source/icons/app_quit_ic.png</iconset>
    </property>
    <property name="text">
     <string>Quit</string>
@@ -424,7 +421,7 @@ For multiple files proccessng</string>
   <action name="closeFileAction">
    <property name="icon">
     <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/closeFile.png</normaloff>:/icons/icons/closeFile.png</iconset>
+     <normaloff>:/source/icons/file_close_ic.png</normaloff>:/source/icons/file_close_ic.png</iconset>
    </property>
    <property name="text">
     <string>Close</string>
@@ -439,7 +436,7 @@ For multiple files proccessng</string>
   <action name="addFileAct">
    <property name="icon">
     <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/add.png</normaloff>:/icons/icons/add.png</iconset>
+     <normaloff>:/source/icons/file_add_ic.png</normaloff>:/source/icons/file_add_ic.png</iconset>
    </property>
    <property name="text">
     <string>Add</string>
@@ -454,7 +451,7 @@ For multiple files proccessng</string>
   <action name="pointsAct">
    <property name="icon">
     <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/calc.png</normaloff>:/icons/icons/calc.png</iconset>
+     <normaloff>:/source/icons/chart_points_ic.png</normaloff>:/source/icons/chart_points_ic.png</iconset>
    </property>
    <property name="text">
     <string>Build points table</string>
@@ -469,7 +466,7 @@ For multiple files proccessng</string>
   <action name="chartBuildAct">
    <property name="icon">
     <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/chart.png</normaloff>:/icons/icons/chart.png</iconset>
+     <normaloff>:/source/icons/chart_it.png</normaloff>:/source/icons/chart_it.png</iconset>
    </property>
    <property name="text">
     <string>View on chart</string>
@@ -484,7 +481,7 @@ For multiple files proccessng</string>
   <action name="githubAct">
    <property name="icon">
     <iconset resource="sources.qrc">
-     <normaloff>:/icons/icons/github.png</normaloff>:/icons/icons/github.png</iconset>
+     <normaloff>:/source/icons/github_ic.png</normaloff>:/source/icons/github_ic.png</iconset>
    </property>
    <property name="text">
     <string>Open GitHub</string>

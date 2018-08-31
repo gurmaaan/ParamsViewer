@@ -7,6 +7,9 @@ ChartWidget::ChartWidget(QWidget *parent) :
 {
     ui->setupUi(this);
     model_ = new QStandardItemModel();
+    setColor(QColor(Qt::white));
+    setDefaultLineName("...", "...");
+    initChart();
 }
 
 ChartWidget::~ChartWidget()
@@ -48,35 +51,43 @@ void ChartWidget::setCBMaximum(int colCnt)
 void ChartWidget::on_yCB_currentIndexChanged(int index)
 {
     if(model_->columnCount() != 0)
+    {
         setYColNum(index);
+        setDefaultLineName(ui->xCB->itemText(index), ui->yCB->currentText());
+    }
 }
 
 void ChartWidget::on_xCB_currentIndexChanged(int index)
 {
     if(model_->columnCount() != 0)
+    {
         setXColNum(index);
+        setDefaultLineName(ui->xCB->currentText(), ui->yCB->itemText(index));
+    }
 }
 
 void ChartWidget::on_buildBtn_clicked()
 {
-    qDebug() << "X vector count :" << xValsVec_.count();
-    qDebug() << "Y vector count :" << yValsVec_.count();
-    qDebug() << " ---------------------------";
-    qDebug() << "|\tx\t|\ty\t|";
-        qDebug() << " ---------------------------";
-    for(int r = 0; r < model_->rowCount(); r++)
-    {
-        qDebug() << "| " << xValsVec_.at(r) << "| " << yValsVec_.at(r) << "| ";
-    }
+//    qDebug() << "X vector count :" << xValsVec_.count();
+//    qDebug() << "Y vector count :" << yValsVec_.count();
+//    qDebug() << " ---------------------------";
+//    qDebug() << "|\tx\t|\ty\t|";
+//        qDebug() << " ---------------------------";
+//    for(int r = 0; r < model_->rowCount(); r++)
+//    {
+//        qDebug() << "| " << xValsVec_.at(r) << "| " << yValsVec_.at(r) << "| ";
+//    }
+
+    emit updateChart(ui->xCB->currentIndex(), ui->yCB->currentIndex(), color());
 }
 
 void ChartWidget::setColor(const QColor &clr)
 {
     color_ = clr;
-    QPalette palette = ui->colorLabel->palette();
-    palette.setColor(ui->colorLabel->backgroundRole(), color_);
-    ui->colorLabel->setPalette(palette);
-
+    QPixmap pm = QPixmap( ui->colorBtn->iconSize());
+    pm.fill(clr);
+    pm = ImageService::addRect(pm);
+    ui->colorBtn->setIcon(QIcon(pm));
     emit colorChanged(color_);
 }
 
@@ -84,6 +95,25 @@ void ChartWidget::on_colorBtn_clicked()
 {
     QColor userSelectedCOlor = QColorDialog::getColor();
     setColor(userSelectedCOlor);
+}
+
+void ChartWidget::initChart()
+{
+    chart_ = new QChart;
+    lineSeries_ = new QLineSeries;
+    chartView_ = new QChartView(chart_);
+}
+
+void ChartWidget::setLineName(const QString &lineName)
+{
+    lineName_ = lineName;
+}
+
+void ChartWidget::setDefaultLineName(const QString &function, const QString &argument)
+{
+    QString newName = "Dependence between " + function + " and " + argument;
+    qDebug() << newName;
+    ui->lineNameLE->setText(newName);
 }
 
 void ChartWidget::setYValsVec(const QVector<double> &yValsVec)
@@ -110,4 +140,9 @@ void ChartWidget::setXColNum(int xColNum)
     emit xIndexChanged(xColNum_);
     if(model_->columnCount() > 0 && model_->columnCount() >= xColNum_)
         setXValsVec(ItemsService::getColVals(model_, xColNum_));
+}
+
+void ChartWidget::on_lineNameLE_textChanged(const QString &arg1)
+{
+    setLineName(arg1);
 }

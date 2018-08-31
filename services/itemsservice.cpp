@@ -17,36 +17,17 @@ void ItemsService::makeItemTextColor(QStandardItem *item, QRgb colorCode)
     item->setData(QColor(colorCode), Qt::TextColorRole);
 }
 
-void ItemsService::makeItemBGColor(QStandardItem *item, QRgb colorCode)
+void ItemsService::makeItemBGColor(QStandardItem *item, QColor color)
 {
     //Вылет при вызове этой функции
-    item->setData(QBrush(QColor(colorCode), Qt::SolidPattern), Qt::BackgroundColorRole);
+    item->setData(QBrush(color, Qt::DiagCrossPattern), Qt::BackgroundColorRole);
 }
 
-void ItemsService::makeAllItemBGColor(QStandardItemModel *model, QRgb colorCode)
+void ItemsService::makeAllItemBGColor(QStandardItemModel *model, QColor color)
 {
     for(int c = 0; c < model->columnCount(); c++)
         for(int r = 0; r < model->rowCount(); r++)
-            makeItemBGColor(model->item(r, c), colorCode);
-}
-
-void ItemsService::makeAllItemBGColorDefault(QStandardItemModel *model)
-{
-    for(int r = 0; r < model->rowCount(); r++)
-    {
-        QColor bgClr = (r%2 != 0) ? QColor(QPalette::Base) : QColor(QPalette::AlternateBase);
-        for(int c = 0; c < model->columnCount(); c++)
-        {
-            if(model->item(r,c)->background().color() != bgClr)
-                makeItemBGColor(model->item(r,c), bgClr.rgb());
-        }
-    }
-}
-
-void ItemsService::makeColBgClr(QList<QStandardItem *> *col, QRgb colorCode)
-{
-    for(int r = 0; r < col->count(); r++)
-        makeItemBGColor( col->at(r), colorCode );
+            makeItemBGColor(model->item(r, c), color);
 }
 
 void ItemsService::makeFontBold(QStandardItem *item)

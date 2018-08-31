@@ -37,8 +37,8 @@
         <string>1. (A ∪ B) ∪ (A ⊂ B) ∪ (B ⊂ A)</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_1_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_1_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_1_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_1_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -70,8 +70,8 @@
         <string>2. A ∪ B</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_2_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_2_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_2_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_2_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -103,8 +103,8 @@
         <string>3. (A ∪ B) \ (A ∩ B)</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_3_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_3_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_3_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_3_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -136,8 +136,8 @@
         <string>4. A ⊂ B</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_4_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_4_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_4_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_4_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -169,8 +169,8 @@
         <string>5. A ∩ B</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_5_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_5_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_5_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_5_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -201,8 +201,8 @@
         <string>6. A \ (A ⊂ B)</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_6_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_6_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_6_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_6_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -234,8 +234,8 @@
         <string>7. A ∪ (B ⊂ A)</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_7_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_7_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_7_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_7_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -267,8 +267,8 @@
         <string>8. A</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_8_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_8_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_8_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_8_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -300,8 +300,8 @@
         <string>9. A + B</string>
        </property>
        <property name="icon">
-        <iconset resource="sources.qrc">
-         <normaloff>:/icons/icons/FM_TransBG/FM_9_TransBG.png</normaloff>:/icons/icons/FM_TransBG/FM_9_TransBG.png</iconset>
+        <iconset resource="../sources.qrc">
+         <normaloff>:/source/icons/FM_TransBG/FM_9_TransBG_ic.png</normaloff>:/source/icons/FM_TransBG/FM_9_TransBG_ic.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -330,7 +330,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="sources.qrc"/>
+  <include location="../sources.qrc"/>
  </resources>
  <connections>
   <connection>

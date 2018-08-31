@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>673</width>
-    <height>518</height>
+    <height>592</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
@@ -34,14 +34,51 @@
       </property>
      </widget>
      <widget class="QWidget" name="layoutWidget">
-      <layout class="QFormLayout" name="formLayout">
-       <property name="labelAlignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="formAlignment">
-        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-       </property>
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="Line" name="line">
+         <property name="frameShadow">
+          <enum>QFrame::Plain</enum>
+         </property>
+         <property name="lineWidth">
+          <number>2</number>
+         </property>
+         <property name="midLineWidth">
+          <number>1</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="lineNameHLayout">
+         <item>
+          <widget class="QLabel" name="lineNameLabel">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Line name</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lineNameLE">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
         <layout class="QHBoxLayout" name="yHLayout">
          <property name="sizeConstraint">
           <enum>QLayout::SetMinimumSize</enum>
@@ -134,68 +171,7 @@
          </item>
         </layout>
        </item>
-       <item row="0" column="1">
-        <layout class="QHBoxLayout" name="colorHLayout">
-         <item>
-          <widget class="QLabel" name="colorLabel">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>73</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::Box</enum>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QCommandLinkButton" name="buildBtn">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>60</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Build</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../sources.qrc">
-             <normaloff>:/icons/icons/build.png</normaloff>:/icons/icons/build.png</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>40</width>
-             <height>40</height>
-            </size>
-           </property>
-           <property name="shortcut">
-            <string>Ctrl+B</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item row="1" column="0">
+       <item>
         <layout class="QHBoxLayout" name="xHLayout">
          <property name="sizeConstraint">
           <enum>QLayout::SetMaximumSize</enum>
@@ -288,18 +264,78 @@
          </item>
         </layout>
        </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="colorBtn">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Change color</string>
-         </property>
-        </widget>
+       <item>
+        <layout class="QHBoxLayout" name="commandsHLayout">
+         <item>
+          <widget class="QCommandLinkButton" name="colorBtn">
+           <property name="text">
+            <string>Change color</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../sources.qrc">
+             <normaloff>:/source/icons/bg_clr_ic.png</normaloff>:/source/icons/bg_clr_ic.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="description">
+            <string>Change line and columns 
+color</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCommandLinkButton" name="buildBtn">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>60</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Build</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../sources.qrc">
+             <normaloff>:/source/icons/chart_it.png</normaloff>:/source/icons/chart_it.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+B</string>
+           </property>
+           <property name="description">
+            <string>Add selected columns to the chart</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

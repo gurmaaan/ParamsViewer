@@ -24,11 +24,9 @@ public:
     static QSize sizeOfOneSymb(QStandardItem *anyItem);
     static QSize sizeCorrection(QStandardItem *item);
 
-    static void makeItemBGColor(QStandardItem *item, QRgb colorCode);
-    static void makeAllItemBGColor(QStandardItemModel *model, QRgb colorCode);
-    static void makeAllItemBGColorDefault(QStandardItemModel *model);
-    static void makeColBgClr(QList<QStandardItem*> *col, QRgb colorCode);
-    \
+    static void makeItemBGColor(QStandardItem *item, QColor color);
+    static void makeAllItemBGColor(QStandardItemModel *model, QColor color);
+
     void makeItemTextColor(QStandardItem *item, QRgb colorCode);
     void makeAllItemsTextColor(QStandardItemModel *model, QRgb colorCode);
 
