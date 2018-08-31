@@ -53,7 +53,7 @@ void ImageObjectsFile::loadCSVText(const QString &fileText)
                     QString itemString = itemsStrListAtR.at(c);
                     QStandardItem* itemAtRC = new QStandardItem();
 
-                    StringService::replaceForDouble(itemString);
+                    FloatService::replaceCommaToPoint(&itemString);
                     itemAtRC->setData(itemString, Qt::EditRole);
 
                     double itemAtRCVal = itemString.toDouble();

@@ -12,7 +12,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     imOF_ = new ImageObjectsFile();
-    bulkWindow = new BulkUtilityDialog();
+    bulkWindow_ = new BulkUtilityDialog();
+    chartW_ = ui->chartWidget;
     applyScreenSettings();
     connectAll();
     initUI();
@@ -61,7 +62,7 @@ void MainWindow::connectAll()
     connect(imOF_, &ImageObjectsFile::modelChenged,
             ui->firstFileTableView, &QTableView::setModel);
     connect(imOF_, &ImageObjectsFile::modelChenged,
-            ui->chartWidget, &ChartWidget::setModel);
+            chartW_, &ChartWidget::setModel);
     connect(imOF_, &ImageObjectsFile::rowProccessed,
             ui->fileWidget, &FileWidget::setProgress);
 }
@@ -115,5 +116,5 @@ void MainWindow::setAllUIElemntsRowCnt(int rowCnt)
 
 void MainWindow::on_addFileAct_triggered()
 {
-    bulkWindow->show();
+    bulkWindow_->show();
 }

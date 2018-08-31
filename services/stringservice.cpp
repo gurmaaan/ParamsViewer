@@ -80,10 +80,7 @@ QRgb StringService::getCSSClrProp(QString stylesheetStr, QString cssPropName)
     return clrCode;
 }
 
-QString StringService::replaceForDouble(QString &strWithComme)
-{
-    return strWithComme.replace(",", ".");
-}
+
 
 bool StringService::notEmpty(QString str)
 {

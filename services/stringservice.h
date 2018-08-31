@@ -32,7 +32,6 @@ public:
     static QStringList splitAndRemoveFirstRow(QString fileText);
     static QStringList splitBySemicolon(QString str);
 
-    static QString replaceForDouble(QString &strWithComme);
     static bool notEmpty(QString str);
 
     static int maximumLen(QStringList list);

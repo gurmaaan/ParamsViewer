@@ -14,6 +14,9 @@ public:
     static double max(QVector<double> v);
     static double min(QVector<double> v);
     static double avr(QVector<double> v);
+
+    static QString replaceCommaToPoint(QString *strWithComma);
+    static double fromString(QString str);
 };
 
 #endif // FLOATSERVICE_H

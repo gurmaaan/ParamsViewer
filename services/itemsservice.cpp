@@ -163,3 +163,17 @@ void ItemsService::makeHeader(QStandardItem *item, Qt::Orientation orientation)
     if(!verticalOrientation)
         sizeCorrection(item);
 }
+
+QVector<double> ItemsService::getColVals(QStandardItemModel *m, int colNum)
+{
+    QVector<double> vals;
+    for(int c = 0; c < m->columnCount(); c++)
+    {
+        if(c == colNum)
+        {
+            for(int r = 0; r < m->rowCount(); r++)
+                vals << FloatService::fromString( m->item(r, c)->data(Qt::EditRole).toString() );
+        }
+    }
+    return vals;
+}

@@ -9,6 +9,8 @@
 #include <QFontMetrics>
 #include <QPalette>
 
+#include <services/floatservice.h>
+
 class ItemsService : public QObject
 {
     Q_OBJECT
@@ -41,6 +43,8 @@ public:
     static void makeHHeader(QStandardItem *item);
     static void makeVHeader(QStandardItem *item);
     static void makeHeader(QStandardItem *item, Qt::Orientation orientation);
+
+    static QVector<double> getColVals(QStandardItemModel *m, int colNum);
 
 signals:
     void sendStatusMessage(QString msgTxt);

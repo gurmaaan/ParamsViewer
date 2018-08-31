@@ -46,3 +46,19 @@ double FloatService::avr(QVector<double> v)
     double cnt = static_cast<double>( v .count() );
     return sum / cnt;
 }
+
+QString FloatService::replaceCommaToPoint(QString *strWithComma)
+{
+    return strWithComma->replace(",", ".");
+}
+
+double FloatService::fromString(QString str)
+{
+    str = replaceCommaToPoint(&str);
+    bool successfullyConverted = false;
+    double val = str.toDouble(&successfullyConverted);
+    if(successfullyConverted)
+        return val;
+    else
+        return 0.0;
+}

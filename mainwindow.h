@@ -7,6 +7,7 @@
 #include "services.h"
 #include "model/imageobjectsfile.h"
 #include "widgets/bulkutilitydialog.h"
+#include "widgets/chartwidget.h"
 
 extern const int _MSG_TIME_;
 extern const QString _GURMAAAN_;
@@ -37,7 +38,8 @@ private:
     Ui::MainWindow *ui;
     void applyScreenSettings();
     ImageObjectsFile *imOF_;
-    BulkUtilityDialog *bulkWindow;
+    BulkUtilityDialog *bulkWindow_;
+    ChartWidget *chartW_;
     void connectAll();
     void initUI();
 };
