@@ -20,6 +20,7 @@ public:
 
 public slots:
     void setModel(QStandardItemModel* model);
+    void setMaximum(int colCnt);
 
 private:
     Ui::CHartWidget *ui;

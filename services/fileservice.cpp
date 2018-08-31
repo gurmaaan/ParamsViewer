@@ -145,6 +145,9 @@ QString Msg::header(MessageType type)
         case MessageType::SelectCol:
             messageHeaderStr = "Select the column";
             break;
+        default:
+            messageHeaderStr = " ";
+            break;
     }
     return messageHeaderStr;
 }
@@ -170,9 +173,10 @@ QString Msg::body(MessageType type)
         mesgBody = "Select the column...";
         break;
     case MessageType::SuccessfullyReaded:
-        mesgBody = file() + "successfully readed. "
+        mesgBody = file() + "successfully readed. ";
     default:
         mesgBody = " ";
+        break;
     }
     return mesgBody;
 }

@@ -4,8 +4,9 @@
 #include <QMainWindow>
 #include <QScreen>
 #include <QtDebug>
+#include "services.h"
 #include "model/imageobjectsfile.h"
-#include "bulkutilitydialog.h"
+#include "widgets/bulkutilitydialog.h"
 
 extern const int _MSG_TIME_;
 extern const QString _GURMAAAN_;

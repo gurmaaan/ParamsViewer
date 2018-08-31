@@ -75,7 +75,7 @@ bool operator ==(const Descriptor &d1, const Descriptor &d2)
 {
     bool objEqual = (d1.objId() == d2.objId() ? true : false);
     bool idEqual = (d1.id() == d2.id() ? true : false);
-    bool valueEqual = (d1.data() == d2.data() ? true : false);
+    bool valueEqual = (FloatService::equal(d1.data(), d2.data()) ? true : false);
     return objEqual && idEqual && valueEqual;
 }
 

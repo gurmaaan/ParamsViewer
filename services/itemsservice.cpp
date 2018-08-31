@@ -153,12 +153,13 @@ void ItemsService::makeVHeader(QStandardItem *item)
 void ItemsService::makeHeader(QStandardItem *item, Qt::Orientation orientation)
 {
     Qt::AlignmentFlag flag;
-    bool direction = (orientation == Qt::Vertical);
-    flag =  direction ? Qt::AlignRight : Qt::AlignCenter;
+    bool verticalOrientation = (orientation == Qt::Vertical);
+    flag =  verticalOrientation ? Qt::AlignRight : Qt::AlignCenter;
     alignText(item, flag);
     item->setFlags(Qt::ItemIsUserCheckable);
     makeFontBold(item);
-    makeCheckable(item, !direction);
+    makeCheckable(item, !verticalOrientation);
     changeBgColor(item, Qt::lightGray);
-    //sizeCorrection(item);
+    if(!verticalOrientation)
+        sizeCorrection(item);
 }

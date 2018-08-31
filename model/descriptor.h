@@ -5,6 +5,8 @@
 #include <QVariant>
 #include <QDebug>
 
+#include "services.h"
+
 class Obj;
 
 class Descriptor : public QObject

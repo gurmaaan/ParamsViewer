@@ -25,7 +25,7 @@ public:
     static QString getFirstCol(QString str);
     static QString getFirstRow(QString str);
 
-    static QString multipleLineFromSingle(QString str, QChar delimetr = '_', int strsCnt = 3);
+    static QString multipleLineFromSingle(QString str, QString delimetr = "_", int strsCnt = 3);
     static QString singleLineFromMult(QString str);
 
     static QStringList splitAndRemoveFirstColOfFirstRow(QString fileText);

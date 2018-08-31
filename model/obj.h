@@ -5,9 +5,7 @@
 #include <QDebug>
 #include <QStandardItem>
 
-#include "itemsservice.h"
-#include "stringservice.h"
-#include "fileservice.h"
+#include "services.h"
 #include "descriptor.h"
 
 class Obj : public QObject
@@ -46,8 +44,6 @@ private:
     QString name_;
     QString fullName_;
     QVector<Descriptor *> descriptors_;
-
-    ItemsService *is_;
 };
 
 Q_DECLARE_METATYPE(Obj);

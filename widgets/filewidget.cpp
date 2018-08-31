@@ -65,25 +65,33 @@ void FileWidget::setRowCnt(int rowCnt)
     //вызывается при адой новой обработке объекта, здесь это текущая строка
     rowCnt_ = rowCnt;
     ui->sizeRowSpin->setMaximum(rowCnt_);
-    ui->progressBar->setMaximum(rowCnt_);
     ui->sizeRowSpin->setValue(rowCnt_);
+    ui->progressBar->setMaximum(rowCnt_ - 1);
+
+    emit fileRowsCntChanged(rowCnt_);
 }
 
 void FileWidget::setColCnt(int colCnt)
 {
     colCnt_ = colCnt;
-    ui->sizeColSpin->setMaximum(colCnt);
-    ui->sizeColSpin->setValue(colCnt);
+    ui->sizeColSpin->setMaximum(colCnt_);
+    ui->sizeColSpin->setValue(colCnt_);
+
+    emit fileColsCntChanged(colCnt_);
 }
 
 void FileWidget::setProgress(int currentRow)
 {
     progress_ = currentRow;
-    ui->sizeRowSpin->setValue(progress_);
     ui->progressBar->setValue(progress_);
 }
 
 void FileWidget::on_pathBtn_clicked()
+{
+    ui->actionOpen_File->trigger();
+}
+
+void FileWidget::on_actionOpen_File_triggered()
 {
     QString fp = FileService::initDialogAndGetOpenedFileName(Msg::header(MessageType::SelectFile), FileType::CSV);
     setPath(fp);
@@ -91,7 +99,7 @@ void FileWidget::on_pathBtn_clicked()
     QString ft = FileService::getTextOfFile(fp);
     emit fileTextChanged(ft);
 
-    setColCnt( StringService::splitAndRemoveFirstColOfFirstRow(ft).count() + 1 );
-    setRowCnt(StringService::splitAndRemoveFirstRow(ft).count() + 1);
-    setFirstColOfFirstRowText( StringService::multipleLineFromSingle( StringService::getCornerString(ft) , ' ', 2 ) );
+    setColCnt( StringService::splitAndRemoveFirstColOfFirstRow(ft).count());
+    setRowCnt(StringService::splitAndRemoveFirstRow(ft).count());
+    setFirstColOfFirstRowText( StringService::multipleLineFromSingle( StringService::getCornerString(ft) ,"   ", 2 ) );
 }

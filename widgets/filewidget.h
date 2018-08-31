@@ -3,8 +3,7 @@
 
 #include <QGroupBox>
 #include <QStandardPaths>
-#include <fileservice.h>
-#include <stringservice.h>
+#include "services.h"
 
 namespace Ui {
 class FileWidget;
@@ -39,9 +38,13 @@ public slots:
 signals:
    void filePathChanged(QString newPath);
    void fileTextChanged(QString newText);
+   void fileColsCntChanged(int newCnt);
+   void fileRowsCntChanged(int newCnt);
 
 private slots:
    void on_pathBtn_clicked();
+
+   void on_actionOpen_File_triggered();
 
 private:
     Ui::FileWidget *ui;

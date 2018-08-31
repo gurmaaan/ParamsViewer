@@ -134,18 +134,31 @@ QString StringService::getFirstRow(QString str)
     return str.split("\n").first();
 }
 
-QString StringService::multipleLineFromSingle(QString str, QChar delimetr, int strsCnt)
+QString StringService::multipleLineFromSingle(QString str, QString delimetr, int strsCnt)
 {
+    //TODO:: сделать ф-ю универсальной
     int midPos = str.count(delimetr) / 2 + 1;
-    int lastPos = str.count(delimetr );
+    int lastPos = str.count(delimetr);
     int cnt = 0;
-    for(int i = 0; i < str.length(); i++)
+    QStringList list = str.split(delimetr);
+    QString multipleString = "";
+    if(list.count() != 0)
     {
-        cnt++;
-        if( (str.at(i)==delimetr) && ( (cnt==midPos) || ((strsCnt==3) && (cnt==lastPos)) ))
-            str.replace(i, 1, "\n");
-
+        for(QString item : list)
+        {
+            cnt++;
+            if (  (cnt==midPos) || ( (strsCnt==3) && (cnt==lastPos) )  )
+                multipleString+=(item+"\n");
+            else if(cnt == list.count())
+                multipleString+=item;
+            else
+                multipleString+=(item+delimetr);
+        }
+        str = multipleString;
     }
+    else
+        qDebug() << "Input string \"" << str << "\" doesn't contain delimetr \"" << delimetr << "\"";
+
     return str;
 }
 

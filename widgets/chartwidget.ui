@@ -6,16 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>467</width>
-    <height>586</height>
+    <width>673</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QSplitter" name="chartSplitter">
+    <widget class="QSplitter" name="splitter">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -34,7 +34,13 @@
       </property>
      </widget>
      <widget class="QWidget" name="">
-      <layout class="QFormLayout" name="settingsLayout">
+      <layout class="QFormLayout" name="formLayout">
+       <property name="labelAlignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="formAlignment">
+        <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+       </property>
        <item row="0" column="0">
         <layout class="QHBoxLayout" name="yHLayout">
          <property name="sizeConstraint">
@@ -43,7 +49,7 @@
          <item>
           <widget class="QLabel" name="yAxisLabel">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -59,10 +65,16 @@
          <item>
           <widget class="QComboBox" name="yCB">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+            <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>240</width>
+             <height>0</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -99,7 +111,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="allYColCB">
+          <widget class="QSpinBox" name="allYColSB">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
              <horstretch>0</horstretch>
@@ -119,19 +131,6 @@
        <item row="0" column="1">
         <layout class="QHBoxLayout" name="colorHLayout">
          <item>
-          <spacer name="colorLHSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
           <widget class="QLabel" name="colorLabel">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
@@ -141,7 +140,7 @@
            </property>
            <property name="minimumSize">
             <size>
-             <width>60</width>
+             <width>73</width>
              <height>60</height>
             </size>
            </property>
@@ -154,17 +153,36 @@
           </widget>
          </item>
          <item>
-          <spacer name="colorRHSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
+          <widget class="QCommandLinkButton" name="buildBtn">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
-           <property name="sizeHint" stdset="0">
+           <property name="minimumSize">
             <size>
-             <width>40</width>
-             <height>20</height>
+             <width>0</width>
+             <height>60</height>
             </size>
            </property>
-          </spacer>
+           <property name="text">
+            <string>Build</string>
+           </property>
+           <property name="icon">
+            <iconset resource="../sources.qrc">
+             <normaloff>:/icons/icons/build.png</normaloff>:/icons/icons/build.png</iconset>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>40</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="shortcut">
+            <string>Ctrl+B</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
@@ -176,7 +194,7 @@
          <item>
           <widget class="QLabel" name="xAxisLabel">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -196,6 +214,12 @@
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>240</width>
+             <height>0</height>
+            </size>
            </property>
           </widget>
          </item>
@@ -232,9 +256,9 @@
           </widget>
          </item>
          <item>
-          <widget class="QSpinBox" name="allXColCB">
+          <widget class="QSpinBox" name="allXColSB">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+            <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
@@ -251,6 +275,12 @@
        </item>
        <item row="1" column="1">
         <widget class="QPushButton" name="colorBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>Change color</string>
          </property>
@@ -262,6 +292,41 @@
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
+ <resources>
+  <include location="../sources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>yCB</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>curYColSB</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>64</x>
+     <y>489</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>488</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>xCB</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>curXColSB</receiver>
+   <slot>setValue(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>91</x>
+     <y>542</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>129</x>
+     <y>556</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

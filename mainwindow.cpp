@@ -52,6 +52,11 @@ void MainWindow::connectAll()
             imOF_, &ImageObjectsFile::loadCSVText);
     connect(ui->fileWidget, &FileWidget::filePathChanged,
             imOF_, &ImageObjectsFile::setFilePath);
+
+    connect(imOF_, &ImageObjectsFile::modelChenged,
+            ui->firstFileTableView, &QTableView::setModel);
+    connect(imOF_, &ImageObjectsFile::modelChenged,
+            ui->chartWidget, &ChartWidget::setModel);
 }
 
 void MainWindow::initUI()
