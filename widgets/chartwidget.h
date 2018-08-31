@@ -6,6 +6,7 @@
 #include <QAbstractItemView>
 #include <QColorDialog>
 #include <QtCharts>
+#include <QAbstractAxis>
 #include <QPixmap>
 #include "services.h"
 
@@ -68,6 +69,9 @@ private:
     int yColNum_;
     QVector<double> xValsVec_;
     QVector<double> yValsVec_;
+
+    QAbstractAxis *generateAxisX();
+    QAbstractAxis *generateAxisY();
 
 };
 

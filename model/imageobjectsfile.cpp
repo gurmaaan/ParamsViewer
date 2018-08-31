@@ -54,7 +54,7 @@ void ImageObjectsFile::loadCSVText(const QString &fileText)
                     QStandardItem* itemAtRC = new QStandardItem();
 
                     FloatService::replaceCommaToPoint(&itemString);
-                    itemAtRC->setData(itemString, Qt::EditRole);
+                    itemAtRC->setData(itemString.toDouble(), Qt::EditRole);
 
                     double itemAtRCVal = itemString.toDouble();
                     itemAtRC->setData(ItemsService::displayingStr(itemAtRCVal), Qt::DisplayRole);
