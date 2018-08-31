@@ -22,7 +22,7 @@ public:
     inline int                  colInFileCnt()  const { return colInFileCnt_;   }
     inline QVector<QString>     objNamesList()  const { return objNamesList_;   }
     inline int                  rowInFileCnt()  const { return rowInFileCnt_;   }
-    inline QVector<Obj *>       obOnImVect()    const { return objOnInVect_;    }
+    inline QVector<Obj *>       obOnImVect()    const { return objOnImVect_;    }
 
 
 
@@ -47,12 +47,13 @@ private:
     int rowInFileCnt_;
 
     QVector<QString> descrNameList_;
-    QVector<Obj *> objOnInVect_;
+    QVector<Obj *> objOnImVect_;
     QVector<QString> objNamesList_;
     QStandardItemModel *model_;
 
-    QVector<Obj *> parseObjVector(QString fileText);
-    void addToDescrNameList(QString newName);
+    void addToDscrNameList(QString newName);
+    void addToObjcNameList(QString newName);
+
     void addHeader(QStandardItemModel *m, QString headerStr, Qt::Orientation o);
 };
 

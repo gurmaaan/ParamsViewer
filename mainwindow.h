@@ -30,6 +30,8 @@ private slots:
     void on_addFileBtn_clicked();
     void on_addFileAct_triggered();
     void on_actionQuit_triggered();
+    void setAllUIElemntsColCnt(int colCnt);
+    void setAllUIElemntsRowCnt(int rowCnt);
 
 private:
     Ui::MainWindow *ui;

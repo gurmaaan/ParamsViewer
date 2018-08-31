@@ -53,10 +53,17 @@ void MainWindow::connectAll()
     connect(ui->fileWidget, &FileWidget::filePathChanged,
             imOF_, &ImageObjectsFile::setFilePath);
 
+    connect(ui->fileWidget, &FileWidget::fileRowsCntChanged,
+            this, &MainWindow::setAllUIElemntsRowCnt);
+    connect(ui->fileWidget, &FileWidget::fileColsCntChanged,
+            this, &MainWindow::setAllUIElemntsColCnt);
+
     connect(imOF_, &ImageObjectsFile::modelChenged,
             ui->firstFileTableView, &QTableView::setModel);
     connect(imOF_, &ImageObjectsFile::modelChenged,
             ui->chartWidget, &ChartWidget::setModel);
+    connect(imOF_, &ImageObjectsFile::rowProccessed,
+            ui->fileWidget, &FileWidget::setProgress);
 }
 
 void MainWindow::initUI()
@@ -74,13 +81,36 @@ void MainWindow::initUI()
     vH->setSectionResizeMode(QHeaderView::Interactive);
 
     //----------------------------------
-
     ui->splitter->setSizes( QList<int>({INT_MAX, INT_MAX}) );
 }
 
 void MainWindow::on_actionQuit_triggered()
 {
     QCoreApplication::quit();
+}
+
+void MainWindow::setAllUIElemntsColCnt(int colCnt)
+{
+    //filewidget - инициатор его не меняю
+    //modelSize
+    ui->sizeModelColSpin->setMaximum(colCnt);
+    ui->sizeModelColSpin->setValue(colCnt);
+    //ImageObjectsFile
+    imOF_->setColInFileCnt(colCnt);
+    //chartView
+    ui->chartWidget->setCBMaximum(colCnt);
+
+}
+
+void MainWindow::setAllUIElemntsRowCnt(int rowCnt)
+{
+    //filewidget - инициатор его не меняю
+    //modelSize
+    ui->sizeModelRowSpin->setMaximum(rowCnt);
+    ui->sizeModelRowSpin->setValue(rowCnt);
+    //ImageObjectsFile
+    imOF_->setRowInFileCnt(rowCnt);
+    //chartView - не важно, берем у модели
 }
 
 void MainWindow::on_addFileAct_triggered()

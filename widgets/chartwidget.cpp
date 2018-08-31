@@ -22,24 +22,25 @@ void ChartWidget::setModel(QStandardItemModel *model)
 {
     model_ = model;
     int colCnt = model_->columnCount();
-    setMaximum(colCnt);
+    setCBMaximum(colCnt);
     for(int c = 0; c < colCnt; c++)
     {
         QString curCOlName = model_->headerData(c, Qt::Horizontal, Qt::StatusTipRole).toString();
-//        ui->xCB->addItem(curCOlName);
-//        ui->yCB->addItem(curCOlName);
-        ui->xCB->setModel(model_);
-        ui->yCB->setModel(model_);
+        ui->xCB->addItem(curCOlName);
+        ui->yCB->addItem(curCOlName);
     }
 }
 
-void ChartWidget::setMaximum(int colCnt)
+void ChartWidget::setCBMaximum(int colCnt)
 {
-    ui->allXColSB->setMaximum(colCnt);
-    ui->allXColSB->setValue(colCnt);
-    ui->curXColSB->setMaximum(colCnt);
+    if(colCnt != ui->allXColSB->maximum())
+    {
+        ui->allXColSB->setMaximum(colCnt);
+        ui->allXColSB->setValue(colCnt);
+        ui->curXColSB->setMaximum(colCnt);
 
-    ui->allYColSB->setMaximum(colCnt);
-    ui->allYColSB->setValue(colCnt);
-    ui->curYColSB->setMaximum(colCnt);
+        ui->allYColSB->setMaximum(colCnt);
+        ui->allYColSB->setValue(colCnt);
+        ui->curYColSB->setMaximum(colCnt);
+    }
 }

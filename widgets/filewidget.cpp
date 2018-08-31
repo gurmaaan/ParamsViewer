@@ -97,9 +97,9 @@ void FileWidget::on_actionOpen_File_triggered()
     setPath(fp);
 
     QString ft = FileService::getTextOfFile(fp);
-    emit fileTextChanged(ft);
-
     setColCnt( StringService::splitAndRemoveFirstColOfFirstRow(ft).count());
     setRowCnt(StringService::splitAndRemoveFirstRow(ft).count());
+    emit fileTextChanged(ft);
+
     setFirstColOfFirstRowText( StringService::multipleLineFromSingle( StringService::getCornerString(ft) ,"   ", 2 ) );
 }

@@ -43,7 +43,6 @@ signals:
 
 private slots:
    void on_pathBtn_clicked();
-
    void on_actionOpen_File_triggered();
 
 private:

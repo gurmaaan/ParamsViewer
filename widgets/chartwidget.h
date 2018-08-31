@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QStandardItemModel>
+#include <QAbstractItemView>
 
 namespace Ui {
 class CHartWidget;
@@ -20,7 +21,7 @@ public:
 
 public slots:
     void setModel(QStandardItemModel* model);
-    void setMaximum(int colCnt);
+    void setCBMaximum(int colCnt);
 
 private:
     Ui::CHartWidget *ui;
